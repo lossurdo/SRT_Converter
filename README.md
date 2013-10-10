@@ -2,7 +2,7 @@
 
 Convert UTF-8 movie subtitle files to ISO-8859-1
 
-## Usage:
+## Usage
 
 a) Build this project using Maven
 
@@ -12,6 +12,6 @@ c) Drag and Drop SRT subtitle files into the window
 
 d) Files will be converted to source folder with `_ISO-8859-1` suffix
 
-## Fork:
+## Fork
 
 Feel free to fork and contribute.
