@@ -1,6 +1,6 @@
-package com.f0gg.srtconverter.app;
+package com.lossurdo.srtconverter.app;
 
-import com.f0gg.srtconverter.swing.SRTConverter;
+import com.lossurdo.srtconverter.swing.SRTConverter;
 
 public class App {
 

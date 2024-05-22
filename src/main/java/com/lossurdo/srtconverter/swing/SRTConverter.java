@@ -1,4 +1,4 @@
-package com.f0gg.srtconverter.swing;
+package com.lossurdo.srtconverter.swing;
 
 import javax.swing.JOptionPane;
 

@@ -1,14 +1,14 @@
-package com.f0gg.srtconverter.swing;
+package com.lossurdo.srtconverter.swing;
 
 import java.awt.Component;
 import java.io.File;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 
 class FileDropListener implements FileDrop.Listener {
 
-    private static final Logger logger = Logger.getLogger(FileDropListener.class);
+    private static final Logger LOGGER = Logger.getLogger(FileDropListener.class.getName());
     private final Component component;
 
     public FileDropListener(Component component) {
@@ -19,12 +19,12 @@ class FileDropListener implements FileDrop.Listener {
     public void filesDropped(File[] files) {
         try {
             for (File srt : files) {
-                logger.debug("Reading: " + srt);
+                LOGGER.info("Reading: " + srt);
                 String txt = FileUtils.readFileToString(srt, "UTF-8");
                 File iso = new File(srt.getAbsolutePath() + "_ISO-8859-1");
-                logger.debug("Converting: " + iso);
+                LOGGER.info("Converting: " + iso);
                 FileUtils.write(iso, txt, "ISO-8859-1");
-                logger.debug("Conversion successfully: " + iso);
+                LOGGER.info("Conversion successfully: " + iso);
             }            
             new Thread() {
                 @Override
@@ -33,7 +33,7 @@ class FileDropListener implements FileDrop.Listener {
                 }
             }.start();
         } catch (Exception e) {
-            logger.error("Problem while converting subtitle", e);
+            LOGGER.severe("Problem while converting subtitle: " + e.getMessage());
             throw new RuntimeException("Problem while converting subtitle:\r\n" + e.getMessage());
         }
     }
